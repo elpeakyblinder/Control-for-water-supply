@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sixtyfour&display=swap");
+
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: rgb(4, 22, 38);
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(14, 38, 59) 40%, rgb(4, 22, 38) 50%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divbotonesheader {
+    display: flex;
+    gap: 5vh;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.divbotonesheader a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+    font-family: "Silkscreen", sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: solid 1px;
+    width: 15vh;
+    padding: 1vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.header img {
+    width: 30px;
+}

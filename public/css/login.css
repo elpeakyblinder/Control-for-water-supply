@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sixtyfour&display=swap");
+
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: rgb(4, 22, 38);
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(14, 38, 59) 40%, rgb(4, 22, 38) 50%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divbotonesheader {
+    display: flex;
+    gap: 5vh;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.divbotonesheader a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+    font-family: "Silkscreen", sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: solid 1px;
+    width: 15vh;
+    padding: 1vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.header img {
+    width: 30px;
+}
+
+.formulario {
+    border: solid 1px rgba(255, 255, 255, 0.404);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: auto;
+    width: 90vh;
+    padding: 20px;
+}
+
+form {
+    font-family: "Silkscreen", sans-serif;
+    width: 100%; /* Ajustado el ancho del formulario */
+}
+
+.formulario h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 7vh; /* Reducido el tamaño del título */
+}
+
+form div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 0 auto;
+    width: 40vh;
+}
+
+input {
+    width: 100%; /* Cambiado de 40vh a 100% */
+    height: 35px; /* Ajustado el alto del campo de entrada */
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    color: white;
+}
+
+.botones {
+    border: 2px solid #ccc;
+    padding: 1vh 2vh;
+    border-radius: 20px;
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    margin: 25px 0;
+}
+
+.botones:hover {
+    transition: 0.5s;
+    background: transparent;
+    background-color: rgba(166, 106, 239, 0.39);
+    box-shadow: 2px 2px 20px 2px rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* div span{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-size: 11px;
+}
+
+div span a{
+    color: rgb(166 106 239);
+    text-decoration: none;
+} */
+
+.gradiante {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 80%, white 99%);
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+

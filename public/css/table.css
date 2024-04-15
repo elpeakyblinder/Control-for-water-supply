@@ -1,0 +1,53 @@
+.table-container {
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.table-border {
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Ajusta este valor a tu gusto */
+    overflow: hidden; /* Asegúrate de que se respeta el border-radius */
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 150vh;
+    margin: 0 auto;
+    min-width: 600px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+th {
+    background: #ffffff82;
+    color: black;
+    border-top: none;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid #ff3333;
+    padding: 1vh 2vh;
+    border-radius: 1.5vh;
+}
+
+button:hover {
+    transition: 0.5s;
+    background: transparent;
+    background-color: #ff33331a;
+    /* Fondo rojo con transparencia */
+    border: 1px solid #ff3333;
+    /* Borde rojo */
+    /* Texto blanco al pasar el ratón */
+}
