@@ -22,7 +22,7 @@
                     Registrar casa
                 </a>
                 <a href="{{ route('logout') }}">Logout</a>
-                <button onclick="togglePump()">Toggle Bomba de Agua</button>
+                {{-- <button onclick="togglePump()">Toggle Bomba de Agua</button> --}}
             </div>
         </div>
     </header>

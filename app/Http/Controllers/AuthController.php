@@ -130,7 +130,41 @@ class AuthController extends Controller
         }
     }
 
+    public function editUser($id)
+    {
+        $usuario = Usuario::find($id); // Encuentra al usuario por su id
 
+        if ($usuario) {
+            // Aquí puedes redirigir a una vista de edición con el usuario como parámetro
+            return view('auth.edit', ['usuario' => $usuario]);
+        } else {
+            return redirect()->route('table')->with('error', 'Usuario no encontrado');
+        }
+    }
+
+    public function updateUser(Request $request, $id)
+{
+    $usuario = Usuario::find($id); // Encuentra al usuario por su id
+
+    if ($usuario) {
+        // Actualiza los datos del usuario
+        $usuario->name = $request->name;
+        $usuario->surname = $request->surname;
+        $usuario->email = $request->email;
+        $usuario->address = $request->address;
+        $usuario->alias = $request->alias;
+        $usuario->postal_code = $request->postal_code;
+        $usuario->role = $request->role;
+        $usuario->save();
+
+        return redirect()->route('table')->with('success', 'Usuario actualizado exitosamente');
+    } else {
+        return redirect()->route('table')->with('error', 'Usuario no encontrado');
+    }
+}
+
+
+    //funcion para recoger los datos del usuario que tenga una sesion activa de la collecion "usuarios"
     public function getUsers()
     {
         $usuarios = Usuario::all(['name', 'surname', 'email', 'address', 'alias', 'postal_code', 'role']); // Obtiene todos los usuarios sin las contraseñas ni las fechas de creación y actualización
@@ -138,6 +172,10 @@ class AuthController extends Controller
         return view('auth.tablausuarios', ['usuarios' => $usuarios]); // Devuelve una vista con los usuarios
     }
 
+    /*
+    funcion para recoger los registro de la colección "Corte" sque pertenezcan al usuario que esté registrado validandose a traves del alias
+    para graficar unicamente los datos de dicho usuario
+    */
     public function getUserChartData()
     {
         $usuarioActual = Auth::user(); // Obtiene el usuario actual
@@ -158,7 +196,7 @@ class AuthController extends Controller
     }
 
 
-
+    //Funcion para recoger todos los registros de la coleccion "Corte" para hacer una grafica con los datos de todos los usuarios
     public function getChartData()
     {
         $cortes = Corte::orderBy('fecha', 'asc')->get();

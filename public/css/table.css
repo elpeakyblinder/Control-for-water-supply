@@ -1,15 +1,48 @@
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 10vh;
+    font-family: rubik;
+}
+
+.gradiante {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 80%, white 99%);
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
 .table-container {
     display: flex;
     overflow-x: auto;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 40vh;
 }
 
 .table-border {
     border: 1px solid #ddd;
-    border-radius: 10px; /* Ajusta este valor a tu gusto */
-    overflow: hidden; /* Asegúrate de que se respeta el border-radius */
+    border-radius: 10px;
+    overflow: hidden;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
 }
 
 table {
@@ -42,12 +75,35 @@ button {
     border-radius: 1.5vh;
 }
 
-button:hover {
+button.update-btn {
+    border: 1px solid #ccc;
+    padding: 1vh 2vh;
+    border-radius: 1.5vh;
+}
+
+button.update-btn:hover {
+    transition: 0.5s;
+    background: transparent;
+    background-color: #9081aa1a;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Nuevo estilo para el botón de Borrar */
+button.delete-btn {
+    border: 1px solid #ff3333;
+    /* Borde rojo */
+    padding: 1vh 2vh;
+    border-radius: 1.5vh;
+}
+
+button.delete-btn:hover {
     transition: 0.5s;
     background: transparent;
     background-color: #ff33331a;
     /* Fondo rojo con transparencia */
     border: 1px solid #ff3333;
     /* Borde rojo */
+    color: white;
     /* Texto blanco al pasar el ratón */
 }
+

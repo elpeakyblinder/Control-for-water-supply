@@ -90,7 +90,6 @@ h3{
 
 form {
     font-family: "Silkscreen", sans-serif;
-
     display: flex;
     flex-direction: column;
     gap: 30px;

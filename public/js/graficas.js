@@ -50,15 +50,6 @@ fetch("/chart-data")
                         },
                     },
                     x: {
-                        // title: {
-                        //     display: true,
-                        //     text: "Vivienda",
-                        //     color: "white",
-                        //     font: {
-                        //         family: "Silkscreen, sans-serif",
-                        //         size: 20,
-                        //     },
-                        // },
                         ticks: {
                             color: "white",
                         },

@@ -38,8 +38,14 @@ Route::post('/registerHouse', [AuthController::class, 'postRegisterHouse']);
 //ruta para obtener los usuarios de la colecccion por medio de la funcion getUsers
 Route::get('/auth/table', [AuthController::class, 'getUsers'])->name('table')->middleware('admin');
 
-//ruta para borrar un suario de la tabla con la funcion "delete user"
+//ruta para borrar un usuario de la tabla con la función "delete user"
 Route::delete('/auth/deleteUser/{id}', [AuthController::class, 'deleteUser'])->name('deleteUser')->middleware('admin');
+
+//ruta para editar un usuario de la tabla con la función "editUser"
+Route::get('/auth/editUser/{id}', [AuthController::class, 'editUser'])->name('editUser')->middleware('admin');
+
+//ruta para actualizar un usuario de la tabla con la función "updateUser"
+Route::put('/auth/updateUser/{id}', [AuthController::class, 'updateUser'])->name('updateUser')->middleware('admin');
 
 
 Route::get('/auth/admin', function () {
@@ -51,10 +57,16 @@ Route::get('/auth/usuario', function () {
     return view('auth.usuario');
 })->name('usuario')->middleware('cliente');
 
-//grafica admin
+
+
+
+//grafica para admin
 Route::get('/chart-data', [AuthController::class, 'getChartData']);
-//grafica usuario
+
+//grafica para usuario
 Route::get('/chart-Userdata', [AuthController::class, 'getUserChartData']);
+
+
 
 //destruir sesion
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
