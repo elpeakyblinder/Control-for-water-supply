@@ -143,26 +143,32 @@ class AuthController extends Controller
     }
 
     public function updateUser(Request $request, $id)
-{
-    $usuario = Usuario::find($id); // Encuentra al usuario por su id
+    {
+        $usuario = Usuario::find($id); // Encuentra al usuario por su id
 
-    if ($usuario) {
-        // Actualiza los datos del usuario
-        $usuario->name = $request->name;
-        $usuario->surname = $request->surname;
-        $usuario->email = $request->email;
-        $usuario->address = $request->address;
-        $usuario->alias = $request->alias;
-        $usuario->postal_code = $request->postal_code;
-        $usuario->role = $request->role;
-        $usuario->save();
+        if ($usuario) {
+            // Actualiza los datos del usuario
+            $usuario->name = $request->name;
+            $usuario->surname = $request->surname;
+            $usuario->email = $request->email;
+            $usuario->address = $request->address;
+            $usuario->alias = $request->alias;
+            $usuario->postal_code = $request->postal_code;
+            $usuario->role = $request->role;
+            $usuario->save();
 
-        return redirect()->route('table')->with('success', 'Usuario actualizado exitosamente');
-    } else {
-        return redirect()->route('table')->with('error', 'Usuario no encontrado');
+            return redirect()->route('table')->with('success', 'Usuario actualizado exitosamente');
+        } else {
+            return redirect()->route('table')->with('error', 'Usuario no encontrado');
+        }
     }
-}
 
+    public function getUsersAndHouses()
+    {
+        $usuarios = Usuario::with('casas')->get(['name', 'alias']); // Obtiene todos los usuarios con sus casas
+
+        return view('auth.tablausuarioscasas', ['usuarios' => $usuarios]); // Devuelve una vista con los usuarios y sus casas
+    }
 
     //funcion para recoger los datos del usuario que tenga una sesion activa de la collecion "usuarios"
     public function getUsers()

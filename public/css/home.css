@@ -400,3 +400,46 @@ aspect ratio
 .dosimagenes p{
     font-family: "Silkscreen", sans-serif;
 }
+
+
+.muchotexto{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.mision{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mision p{
+    font-family: "rubik", sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 75vh;
+}
+
+.objetivo{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.objetivo p{
+    font-family: "rubik", sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 75vh;
+}
+
+.ubicacion{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ubicacion p{
+    font-family: "rubik", sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 75vh;
+}

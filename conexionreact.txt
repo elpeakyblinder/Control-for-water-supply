@@ -1,0 +1,120 @@
+PASOS PARA HACER LAS GRAFICAS EN REACTNATIVE CON DATOS DE MONGO
+
+
+1. instalar estas librerías
+
+npm install react-native-chart-kit react-native-svg
+
+
+2. Luego, puedes usar el componente LineChart de react-native-chart-kit para crear tu gráfico. Aquí te dejo un ejemplo de cómo podrías hacerlo:
+
+import React, { useEffect, useState } from 'react';
+import { Dimensions } from 'react-native';
+import { LineChart } from 'react-native-chart-kit';
+
+const MyChart = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://<tu-servidor>/api/user-chart-data')   SI ESTAMOS EN LA MISMA RED SE PONE LA IP QUE SALGA EN EL CDM IPCONFIG, SOLO SE MODIFICA <tu-servidor>
+      .then(response => response.json())
+      .then(fetchedData => {
+        // Transforma los datos para que se ajusten al formato requerido por LineChart
+        const transformedData = {
+          labels: fetchedData.map(corte => corte.vivienda + ' - ' + corte.fecha),
+          datasets: [{
+            data: fetchedData.map(corte => corte.litros),
+          }],
+        };
+
+        setData(transformedData);
+      });
+  }, []);
+
+  return data ? (
+    <LineChart
+      data={data}
+      width={Dimensions.get('window').width}
+      height={220}
+      chartConfig={{
+        backgroundColor: '#1cc910',
+        backgroundGradientFrom: '#eff3ff',
+        backgroundGradientTo: '#efefef',
+        decimalPlaces: 2,
+        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+        style: {
+          borderRadius: 16,
+        },
+      }}
+      style={{
+        marginVertical: 8,
+        borderRadius: 16,
+      }}
+    />
+  ) : null;
+};
+
+export default MyChart;
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+PASOS PARA RECOGER IMPRIMIR EN UNA TABLA LOS USUARIOS QUE EXISTEN EN LA DB DE MONGO
+EN UNA TABLA:
+
+
+1. Instalar la libreria para poder hacer la TABLA
+
+npm install react-native-table-component
+
+2. Luego, puedes usar el componente Table y Row de react-native-table-component para crear tu tabla. Aquí te dejo un ejemplo de cómo podrías hacerlo:
+
+import React, { useEffect, useState } from 'react';
+import { ScrollView, View, Text } from 'react-native';
+import { Table, Row } from 'react-native-table-component';
+
+const UserTable = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('http://<tu-servidor>/api/users')  IGUAL LO MISMO, SOLO SE PONE LA IP DE LA RED QUE ESTEMOS COMPARTIENDO, SOLO SE MODIFICA <tu-servidor>
+      .then(response => response.json())
+      .then(fetchedUsers => {
+        setUsers(fetchedUsers);
+      });
+  }, []);
+
+  const tableHead = ['Nombre', 'Apellido', 'Email', 'Dirección', 'Alias', 'Código Postal', 'Rol'];
+  const tableData = users.map(user => [user.name, user.surname, user.email, user.address, user.alias, user.postal_code, user.role]);
+
+  return (
+    <View style={{ flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' }}>
+      <ScrollView horizontal={true}>
+        <View>
+          <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
+            <Row data={tableHead} widthArr={[120, 120, 200, 200, 120, 120, 120]} style={{ height: 50, backgroundColor: '#f1f8ff' }} textStyle={{ textAlign: 'center' }}/>
+          </Table>
+          <ScrollView style={{ marginTop: -1 }}>
+            <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
+              {
+                tableData.map((rowData, index) => (
+                  <Row
+                    key={index}
+                    data={rowData}
+                    widthArr={[120, 120, 200, 200, 120, 120, 120]}
+                    style={{ height: 40, backgroundColor: '#E7E6E1' }}
+                    textStyle={{ textAlign: 'center' }}
+                  />
+                ))
+              }
+            </Table>
+          </ScrollView>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+export default UserTable;
+
