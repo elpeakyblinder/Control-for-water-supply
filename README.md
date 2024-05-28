@@ -72,12 +72,12 @@ Project that will mainly monitor and control the water supply for a housing comp
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/your-repo-name.git](https://github.com/elpeakyblinder/Control-for-water-supply.git
+    git clone https://github.com/elpeakyblinder/Control-for-water-supply.git
     ```
 
 2. Navigate to the project directory:
     ```sh
-    cd your-repo-name
+    cd Control-for-water-supply
     ```
 
 3. Install the dependencies:
